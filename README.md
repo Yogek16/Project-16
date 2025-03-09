@@ -1,2 +1,12 @@
 # Project-16
-this is my project for assesment dicoding
+
+## Setup Environment - Python
+```
+Python -m venv env
+env\Scripts\activate.bat
+```
+
+## Run steamlit app
+```
+D:\Python\Dashboard> streamlit run main.py
+```
