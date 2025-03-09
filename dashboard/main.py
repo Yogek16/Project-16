@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 # Load Data
 def load_data():
-    df_aotizhongxin = pd.read_csv("PRSA_Data_Aotizhongxin_20130301-20170228.csv")
-    df_changping = pd.read_csv("PRSA_Data_Changping_20130301-20170228.csv")
+    df_aotizhongxin = pd.read_csv("dashboard/PRSA_Data_Aotizhongxin_20130301-20170228.csv")
+    df_changping = pd.read_csv("dashboard/PRSA_Data_Changping_20130301-20170228.csv")
     
     # Gabungkan dataset
     df = pd.concat([df_aotizhongxin, df_changping])
