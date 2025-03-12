@@ -4,10 +4,6 @@
 ```
 Python -m venv env
 env\Scripts\activate.bat
-pip install streamlit
-pip install pandas
-pip install matplotlib
-pip install seaborn
 pip install -r requirements.txt
 ```
 
