@@ -1,6 +1,6 @@
 # Project-16
 
-## Setup Environment - Python
+## Setup Environment - Terminal
 ```
 Python -m venv env
 env\Scripts\activate.bat
