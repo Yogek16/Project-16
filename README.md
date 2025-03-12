@@ -4,9 +4,14 @@
 ```
 Python -m venv env
 env\Scripts\activate.bat
+pip install streamlit
+pip install pandas
+pip install matplotlib
+pip install seaborn
+pip install -r requirements.txt
 ```
 
 ## Run steamlit app
 ```
-D:\Python\Dashboard> streamlit run main.py
+streamlit run main.py
 ```
