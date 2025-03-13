@@ -53,6 +53,10 @@ with col1:
     ax.grid(True, linestyle="--", alpha=0.7)
     st.pyplot(fig)
 
+with st.expander("Explanation Perbandingan Polutan di Aotizhongxin vs Changping"):
+    st.write("""Aotizhongxin memiliki polusi lebih tinggi dibanding Chanping untuk semua polutan. 
+PM10 dan PM2.5 tetap yang dominan di kedua lokasi. CO adalah outlier.""")
+
 with col2:
 
     st.subheader("📉 Tren PM2.5 dari Tahun ke Tahun")
@@ -67,6 +71,10 @@ with col2:
     ax.set_xticklabels(df_pm25.index.astype(int))
     ax.grid(True, linestyle="--", alpha=0.7)
     st.pyplot(fig)
+    
+with st.expander("Tren PM2.5 dari Tahun ke Tahun"):
+    st.write("""Polusi udara di dua kota cenderung memiliki tren yang mirip pada kenaikan dan penurunannya. 
+        PM2.5 turun dari 2014 ke 2016, tetapi mengalami kenaikan yang signifikan pada tahun 2017. Aotizhongxin selalu lebih tinggi dibanding Changping, yang berarti lebih berpolusi.""")
 
 # Sidebar: Pilih Jenis Polutan
 st.sidebar.subheader("🌫️ Pilih Polutan")
@@ -86,14 +94,6 @@ ax.set_xticks(df_polutan.index.astype(int))
 ax.set_xticklabels(df_polutan.index.astype(int))
 ax.grid(True, linestyle="--", alpha=0.7)
 st.pyplot(fig)
-
-with st.expander("Explanation Perbandingan Polutan di Aotizhongxin vs Changping"):
-    st.write("""Aotizhongxin memiliki polusi lebih tinggi dibanding Chanping untuk semua polutan. 
-PM10 dan PM2.5 tetap yang dominan di kedua lokasi. CO adalah outlier.""")
-    
-with st.expander("Explanation Perbandingan Polutan di Aotizhongxin vs Changping"):
-    st.write("""Polusi udara di dua kota cenderung memiliki tren yang mirip pada kenaikan dan penurunannya. 
-PM2.5 turun dari 2014 ke 2016, tetapi mengalami kenaikan yang signifikan pada tahun 2017. Aotizhongxin selalu lebih tinggi dibanding Changping, yang berarti lebih berpolusi.""")
     
 st.header("Kesimpulan")
 st.markdown('<div style="text-align: justify;">Aotizhongxin memiliki polusi lebih tinggi dibanding Changping untuk semua jenis polutan, PM2.5 dan PM10 adalah polutan yang dominan di dua tempat tersebut. Polusi udara memiliki kenaikan dan penurunan yang cenderung sama, turun pada 2016 dan naik signifikan pada 2017. perbedaannya adalah Aotizhongxin selalu lebih berpolusi daripada Changping</div>', unsafe_allow_html=True)
