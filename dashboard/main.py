@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load Data
 def load_data():
@@ -23,7 +24,7 @@ df = load_data()
 st.sidebar.title("Air Quality Dashboard")
 st.sidebar.write("Analisis polusi udara di Aotizhongxin & Changping")
 
-# 1️⃣ Ringkasan Data
+# Title
 st.title("📊 Air Quality Dashboard")
 st.write("Dashboard ini menampilkan analisis kualitas udara berdasarkan data polusi di Aotizhongxin dan Changping.")
 
@@ -62,8 +63,29 @@ with col2:
     ax.set_xlabel("Tahun")
     ax.set_ylabel("Rata - rata PM2.5 (µg/m³)")
     ax.legend(["Aotizhongxin", "Changping"])
+    ax.set_xticks(df_pm25.index.astype(int))
+    ax.set_xticklabels(df_pm25.index.astype(int))
     ax.grid(True, linestyle="--", alpha=0.7)
     st.pyplot(fig)
+
+# Sidebar: Pilih Jenis Polutan
+st.sidebar.subheader("🌫️ Pilih Polutan")
+pollutan_options = ["PM2.5", "PM10", "SO2", "NO2", "CO", "O3"]
+selected_polutan = st.sidebar.selectbox("Pilih polutan", pollutan_options)
+
+# Visualisasi Data
+st.subheader(f"📊 Tren {selected_polutan} dari Tahun ke Tahun")
+df_polutan = df.groupby("year")[selected_polutan].mean()
+
+fig, ax = plt.subplots(figsize=(8, 5))
+sns.lineplot(x=df_polutan.index, y=df_polutan.values, marker="o", color="blue", ax=ax)
+ax.set_title(f"Tren {selected_polutan} dari Tahun ke Tahun")
+ax.set_xlabel("Tahun")
+ax.set_ylabel(f"Konsentrasi {selected_polutan} (µg/m³)")
+ax.set_xticks(df_polutan.index.astype(int))
+ax.set_xticklabels(df_polutan.index.astype(int))
+ax.grid(True, linestyle="--", alpha=0.7)
+st.pyplot(fig)
 
 with st.expander("Explanation Perbandingan Polutan di Aotizhongxin vs Changping"):
     st.write("""Aotizhongxin memiliki polusi lebih tinggi dibanding Chanping untuk semua polutan. 
